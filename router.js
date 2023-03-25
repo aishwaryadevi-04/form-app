@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 
 router.post('/form',(req,res)=>{
-    res.send('Works')
+   
     User.findOne({email:req.body.email})
     .then((user) => {
         if (user) {
@@ -22,6 +22,7 @@ router.post('/form',(req,res)=>{
 
             newUser.save().then(() => {
                 res.json(newUser);
+                 res.send('Works')
             }).catch((err) => {
                 res.json({ error: err.message });
             });
